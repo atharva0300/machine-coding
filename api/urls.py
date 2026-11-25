@@ -2,11 +2,15 @@ from django.urls import path
 
 from .services import Service
 from .storage import InMemoryStore
+from .views import CreateView, ListView
 
 
 def build_urlpatterns():
     service = Service(InMemoryStore())
-    return []
+    return [
+        path("items", CreateView.as_view(service=service)),
+        path("items/list", ListView.as_view(service=service)),
+    ]
 
 
 urlpatterns = build_urlpatterns()

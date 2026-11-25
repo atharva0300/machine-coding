@@ -1,8 +1,12 @@
+import logging
+
 from django.urls import path
 
 from .services import Service
 from .storage import InMemoryStore
 from .views import CreateView, ListView
+
+logger = logging.getLogger(__name__)
 
 
 def build_urlpatterns():

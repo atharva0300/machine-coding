@@ -1,3 +1,9 @@
+import logging
+from typing import Optional
+
+logger = logging.getLogger(__name__)
+
+
 class InMemoryStore:
     def __init__(self):
         self._counter = 0

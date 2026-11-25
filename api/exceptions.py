@@ -16,6 +16,16 @@ class DomainError(Exception):
         self.message = message
 
 
+class ValidationFailed(DomainError):
+    status_code = status.HTTP_400_BAD_REQUEST
+    code = "VALIDATION_ERROR"
+
+
+class NotFoundError(DomainError):
+    status_code = status.HTTP_404_NOT_FOUND
+    code = "NOT_FOUND"
+
+
 class ConflictError(DomainError):
     status_code = status.HTTP_409_CONFLICT
     code = "CONFLICT"
